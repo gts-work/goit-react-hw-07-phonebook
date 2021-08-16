@@ -1,25 +1,31 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import { connect } from "react-redux";
 
-function App() {
+import store from "./redux/store";
+import Title from "./components/Title";
+import Filter from "./components/Filter";
+import ContactForm from "./components/ContactForm";
+import ContactsList from "./components/ContactsList";
+
+// console.log(store.store.getState());
+
+function App(contacts) {
+  console.log("contacts = useState ~ contacts: ", contacts);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Title title="Phonebook" />
+      <ContactForm />
+      <Filter />
+      <ContactsList />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    contacts: state.contacts,
+  };
+};
+
+export default connect(mapStateToProps)(App);
