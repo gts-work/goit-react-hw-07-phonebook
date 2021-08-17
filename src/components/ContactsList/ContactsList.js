@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 
+import fetchContacts from "../../redux/сontacts/contactsOperations";
 import ContactItem from "./ContactItem";
 
-const ContactsList = ({ contacts }) => {
-  console.log("ContactsList ~ contacts: ", contacts);
+const ContactsList = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.contacts.items);
+
+  // console.log("ContactsList ~ contacts: ", contacts);
+
+  useEffect(() => dispatch(fetchContacts()), [dispatch]);
 
   return (
     <div>
@@ -45,26 +51,4 @@ ContactsList.propTypes = {
   onDelete: PropTypes.func,
 };
 
-const getVisibleContacts = (allContacts, filter) => {
-  console.log("getVisibleContacts ~ allContacts ==> ", allContacts);
-  console.log("getVisibleContacts ~ filter ==> ", filter);
-
-  const normalizedFilter = filter.toLowerCase();
-  console.log("getVisibleContacts ~ normalizedFilter ==> ", normalizedFilter);
-
-  const getAllContacts = allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter)
-  );
-
-  console.log("allContacts ~ getAllContacts ==>  ", getAllContacts);
-
-  return getAllContacts;
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }) => {
-  return {
-    contacts: getVisibleContacts(items, filter),
-  };
-};
-
-export default connect(mapStateToProps)(ContactsList);
+export default ContactsList;

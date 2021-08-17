@@ -10,7 +10,7 @@ import ContactsList from "./components/ContactsList";
 // console.log(store.store.getState());
 
 function App(contacts) {
-  console.log("contacts = useState ~ contacts: ", contacts);
+  console.log("APP ~ contacts: ", contacts);
 
   return (
     <div className="container">

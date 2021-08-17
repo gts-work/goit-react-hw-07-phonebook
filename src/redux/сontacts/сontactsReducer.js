@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 
-import actionContacts from "./сontacts-actions";
+import actionContacts from "./сontactsActions";
 
 function checkGetNewContact(state, payload) {
+  console.log("checkGetNewContact payload  ==>> ", payload);
+
   const isEqualName = (payload) => {
     // console.log("EQUAL ADD: ", payload);
     // console.log("EQUAL ADD: ", payload.text.name);
@@ -23,10 +25,10 @@ function checkGetNewContact(state, payload) {
 }
 
 const items = createReducer([], {
-  [actionContacts.addContact]: (state, { payload }) =>
-    checkGetNewContact(state, payload),
-  [actionContacts.deleteContact]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+  [actionContacts.fetchContactsSuccess]: (state, { payload }) => payload,
+  // [actionContacts.fetchContactsSuccess]: (state, { payload }) =>
+  //     checkGetNewContact(state, payload),
+  // [fetchTodosSuccess]: (state, { payload }) => payload,
 });
 
 const filter = createReducer("", {
