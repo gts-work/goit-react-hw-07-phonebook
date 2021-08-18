@@ -26,9 +26,10 @@ function checkGetNewContact(state, payload) {
 
 const items = createReducer([], {
   [actionContacts.fetchContactsSuccess]: (state, { payload }) => payload,
-  // [actionContacts.fetchContactsSuccess]: (state, { payload }) =>
-  //     checkGetNewContact(state, payload),
-  // [fetchTodosSuccess]: (state, { payload }) => payload,
+  [actionContacts.fetchAddContactsSuccess]: (state, { payload }) =>
+    checkGetNewContact(state, payload),
+  [actionContacts.fetchDeleteContactsSuccess]: (state, { payload }) =>
+    state.filter(({ id }) => id !== payload),
 });
 
 const filter = createReducer("", {

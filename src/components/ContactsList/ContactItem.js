@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import contactsAction from "../../redux/сontacts/сontactsActions";
+import contactsOperations from "../../redux/сontacts/contactsOperations";
 import styles from "./ContactsList.module.css";
 
 const ContactItem = ({ id, name, number, onDelete }) => (
@@ -36,7 +37,8 @@ ContactItem.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onDelete: (contactId) => dispatch(contactsAction.deleteContact(contactId)),
+  onDelete: (contactId) =>
+    dispatch(contactsOperations.fetchDeleteContacts(contactId)),
 });
 
 export default connect(null, mapDispatchToProps)(ContactItem);

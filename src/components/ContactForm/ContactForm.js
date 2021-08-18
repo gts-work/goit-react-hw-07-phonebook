@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import contactsAction from "../../redux/сontacts/сontactsActions";
+import contactsOperations from "../../redux/сontacts/contactsOperations";
 import styles from "./ContactForm.module.css";
 
 const shortid = require("shortid");
@@ -91,7 +92,7 @@ ContactForm.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (text) => dispatch(contactsAction.addContact(text)),
+  onSubmit: (text) => dispatch(contactsOperations.fetchAddContacts(text)),
 });
 
 export default connect(null, mapDispatchToProps)(ContactForm);

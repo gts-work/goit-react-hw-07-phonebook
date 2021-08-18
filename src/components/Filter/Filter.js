@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import contactsAction from "../../redux/сontacts/сontactsActions";
+import contactsOperations from "../../redux/сontacts/contactsOperations";
 import styles from "./Filter.module.css";
 
 const Fiter = ({ value, onChange }) => (
