@@ -7,16 +7,12 @@ function checkGetNewContact(state, payload) {
   console.log("checkGetNewContact payload  ==>> ", payload);
 
   const isEqualName = (payload) => {
-    // console.log("EQUAL ADD: ", payload);
-    // console.log("EQUAL ADD: ", payload.text.name);
     return state.find(({ name }) => name === payload.name);
   };
 
   if (!isEqualName(payload)) {
     // console.log("items ~ payload ==>  ", payload);
     const newContacts = [payload, ...state];
-    // console.log("items ~ newContacts ==>  ", newContacts);
-
     return newContacts;
   } else {
     alert(`${payload.name} is already in contacts`);

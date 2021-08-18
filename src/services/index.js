@@ -1,2 +1,1 @@
-export * as contactsApi from "./contactsApi";
-export { default } from "./settings";
+export { default } from "./contactsApi";

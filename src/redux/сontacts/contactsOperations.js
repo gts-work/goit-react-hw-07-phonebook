@@ -1,5 +1,5 @@
-import contactsAction from "../../redux/сontacts/сontactsActions";
-import contactsApi from "../../services/contactsApi";
+import contactsAction from "./сontactsActions";
+import contactsApi from "../../services";
 
 console.log("fetchContactsApi ==>>  ", contactsApi.fetchContacts());
 
