@@ -2,6 +2,11 @@ import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 
 import actionContacts from "./сontactsActions";
+import {
+  fetchContacts,
+  fetchAddContacts,
+  fetchDeleteContacts,
+} from "./contactsOperations";
 
 function checkGetNewContact(state, payload) {
   console.log("checkGetNewContact payload  ==>> ", payload);
@@ -21,10 +26,10 @@ function checkGetNewContact(state, payload) {
 }
 
 const items = createReducer([], {
-  [actionContacts.fetchContactsSuccess]: (state, { payload }) => payload,
-  [actionContacts.fetchAddContactsSuccess]: (state, { payload }) =>
+  [fetchContacts.fulfilled]: (state, { payload }) => payload,
+  [fetchAddContacts.fulfilled]: (state, { payload }) =>
     checkGetNewContact(state, payload),
-  [actionContacts.fetchDeleteContactsSuccess]: (state, { payload }) =>
+  [fetchDeleteContacts.fulfilled]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
