@@ -6,11 +6,6 @@
       "number": "459-12-56"
     },
     {
-      "id": "UcE7nOS0K7",
-      "name": "New user",
-      "number": "459-12-52"
-    },
-    {
       "id": "PIQC8lPiSg",
       "name": "Alex Bro",
       "number": "222-33-44"
@@ -19,6 +14,11 @@
       "id": "rZ-8o-kmJK",
       "name": "Der Braun",
       "number": "111-22-33"
+    },
+    {
+      "id": "cNSkxCYJtb",
+      "name": "qwerty",
+      "number": "459-12-56"
     }
   ]
 }

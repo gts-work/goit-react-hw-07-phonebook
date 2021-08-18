@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 
-import contactsOperations from "redux/сontacts/contactsOperations";
+import contactsOperations from "redux/contacts/contactsOperations";
+import contactsSelectors from "redux/contacts/сontactsSelectors";
 import ContactItem from "./ContactItem";
 
 const ContactsList = () => {
@@ -10,24 +11,8 @@ const ContactsList = () => {
 
   useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch]);
 
-  const getVisibleContacts = (allContacts, filter) => {
-    console.log("getVisibleContacts ~ allContacts ==> ", allContacts);
-    console.log("getVisibleContacts ~ filter ==> ", filter);
-
-    const normalizedFilter = filter.toLowerCase();
-    console.log("getVisibleContacts ~ normalizedFilter ==> ", normalizedFilter);
-
-    const getAllContacts = allContacts.filter(({ name }) =>
-      name.toLowerCase().includes(normalizedFilter)
-    );
-
-    console.log("allContacts ~ getAllContacts ==>  ", getAllContacts);
-
-    return getAllContacts;
-  };
-
   const contacts = useSelector((state) =>
-    getVisibleContacts(state.contacts.items, state.contacts.filter)
+    contactsSelectors.getVisibleContacts(state)
   );
 
   console.log("ContactsList ~ contacts: ", contacts);

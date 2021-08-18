@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import contactsOperations from "redux/сontacts/contactsOperations";
+import contactsOperations from "redux/contacts/contactsOperations";
 import styles from "./ContactForm.module.css";
 
 const shortid = require("shortid");
