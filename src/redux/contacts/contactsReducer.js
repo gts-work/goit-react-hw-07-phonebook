@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 
-import actionContacts from "./сontactsActions";
+import actionContacts from "./contactsActions";
 import {
   fetchContacts,
   fetchAddContacts,

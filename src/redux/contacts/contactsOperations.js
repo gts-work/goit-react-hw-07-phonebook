@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import contactsAction from "./сontactsActions";
+import contactsAction from "./contactsActions";
 import contactsApi from "services";
 
 console.log("fetchContactsApi ==>>  ", contactsApi.fetchContacts());

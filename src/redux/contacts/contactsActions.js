@@ -22,7 +22,7 @@ import { createAction } from "@reduxjs/toolkit";
 //   "сontacts/fetchDeleteContactsError"
 // );
 
-export const changeFilter = createAction("сontacts/changeFilter");
+const changeFilter = createAction("сontacts/changeFilter");
 
 export default {
   // fetchContactsRequest,
